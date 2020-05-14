@@ -11,7 +11,10 @@ class Clipboard:
     def removeNewLines(self,s):
         return ' '.join(x for x in s.split('\n'))
     def dewIt(self):
-        self.write_to_clipboard(self.removeNewLines(self.read_from_clipboard()))
+        s = self.read_from_clipboard()
+        ss = self.removeNewLines(s)
+        if s != ss:
+            self.write_to_clipboard(ss)
 
 
 if __name__ == '__main__':
